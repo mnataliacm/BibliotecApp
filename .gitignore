@@ -1,3 +1,4 @@
 .vscode/
-/Backend/src/main/resources/application.resources
+Backend/src/main/resources/application.resources
 
+Backend/src/main/resources/application.properties
