@@ -6,6 +6,3 @@ target/
 
 .vscode/
 
-
-!**/src/main/resources/application.resources
-#*/src/main/resources/application.properties
