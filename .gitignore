@@ -28,3 +28,4 @@ build/
 
 /resources/application.properties
 .angular
+Backend/src/main/resources/application.properties
