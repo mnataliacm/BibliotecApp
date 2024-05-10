@@ -1,5 +1,6 @@
 package com.ncm.library.controller;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.ncm.library.entity.User;
 import com.ncm.library.service.UserService;
+import com.ncm.library.dto.Message;
 
 // @Controller // This means that this class is a Controller
 // @RequestMapping(path="/library")
@@ -59,24 +61,24 @@ public class UserController {
   //   }
 
     
-    // @SuppressWarnings({ "unchecked", "rawtypes" })
-    // @PostMapping("/add")
-    // public ResponseEntity<?> create(@RequestBody User user){
-    //     if(StringUtils.isBlank(user.getName()))
-    //         return new ResponseEntity(new Message("el nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-    //     if(StringUtils.isBlank(user.getSurname()))
-    //         return new ResponseEntity(new Message("el apellido es obligatorio"), HttpStatus.BAD_REQUEST);
-    //     if(StringUtils.isBlank(user.getEmail()))
-    //         return new ResponseEntity(new Message("el email es obligatorio"), HttpStatus.BAD_REQUEST);
-    //     if(StringUtils.isBlank(user.getMobile()))
-    //         return new ResponseEntity(new Message("el móvil es obligatorio"), HttpStatus.BAD_REQUEST);
-    //     if(StringUtils.isBlank(user.getAddress()))
-    //         return new ResponseEntity(new Message("el dirección es obligatoria"), HttpStatus.BAD_REQUEST);       
-    //     // if(userService.existePorNombre(user.getEmail()))//
-    //         // return new ResponseEntity(new Message("ese nombre ya existe"), HttpStatus.BAD_REQUEST);
-    //     userService.save(user);
-    //     return new ResponseEntity(new Message("usuario guardado"), HttpStatus.CREATED);
-    // }
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @PostMapping("/add")
+    public ResponseEntity<?> create(@RequestBody User user){
+        if(StringUtils.isBlank(user.getName()))
+            return new ResponseEntity(new Message("el nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(user.getSurname()))
+            return new ResponseEntity(new Message("el apellido es obligatorio"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(user.getEmail()))
+            return new ResponseEntity(new Message("el email es obligatorio"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(user.getMobile()))
+            return new ResponseEntity(new Message("el móvil es obligatorio"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(user.getAddress()))
+            return new ResponseEntity(new Message("el dirección es obligatoria"), HttpStatus.BAD_REQUEST);       
+        // if(userService.existePorNombre(user.getEmail()))//
+            // return new ResponseEntity(new Message("ese nombre ya existe"), HttpStatus.BAD_REQUEST);
+        userService.save(user);
+        return new ResponseEntity(new Message("usuario guardado"), HttpStatus.CREATED);
+    }
 
   //   @PutMapping("/actualizar/{id}")
   //   public ResponseEntity<?> update(@RequestBody user user, @PathVariable("id") Long id){
