@@ -10,16 +10,20 @@ import { User } from '../../models/user';
 export class UserComponent {
 
   people: User[] = [];
+  server: boolean = false;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.listPeople();
+    if (this.server) {
+      this.listPeople();
+    }
   }
 
   listPeople(): void {
     this.userService.all().subscribe(data => {
       this.people = data;
+      this.server = true;
     },
       (err: any) => {
         console.log(err);

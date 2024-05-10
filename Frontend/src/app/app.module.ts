@@ -13,12 +13,18 @@ import { HomeComponent } from './home/home/home.component';
 import { UserComponent } from './components/user/user.component';
 import { AuthorComponent } from './components/author/author.component';
 import { CategoryComponent } from './components/category/category.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     HomeComponent, 
-    UserComponent, AuthorComponent, CategoryComponent,
+    UserComponent, 
+    AuthorComponent, 
+    CategoryComponent, 
+    RegisterComponent, 
+    LoginComponent,
 
   ],
   imports: [
