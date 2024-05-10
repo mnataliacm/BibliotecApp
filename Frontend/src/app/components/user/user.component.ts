@@ -15,7 +15,7 @@ export class UserComponent {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    if (this.server) {
+    if (!this.server) {
       this.listPeople();
     }
   }

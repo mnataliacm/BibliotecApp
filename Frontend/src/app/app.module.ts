@@ -15,6 +15,10 @@ import { AuthorComponent } from './components/author/author.component';
 import { CategoryComponent } from './components/category/category.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
+import { BookFormComponent } from './components/book-form/book-form.component';
+import { CategoryFormComponent } from './components/category-form/category-form.component';
+import { AuthorFormComponent } from './components/author-form/author-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,7 @@ import { LoginComponent } from './components/login/login.component';
     AuthorComponent, 
     CategoryComponent, 
     RegisterComponent, 
-    LoginComponent,
+    LoginComponent, UserFormComponent, BookFormComponent, CategoryFormComponent, AuthorFormComponent,
 
   ],
   imports: [
