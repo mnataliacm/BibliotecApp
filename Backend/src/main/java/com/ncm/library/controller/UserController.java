@@ -14,7 +14,7 @@ import com.ncm.library.dto.Message;
 // @Controller // This means that this class is a Controller
 // @RequestMapping(path="/library")
 @RestController
-@RequestMapping("/api/library")
+@RequestMapping("/api/library/user")
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 

@@ -10,7 +10,7 @@ const header = {headers: new HttpHeaders({'Content-TYpe': 'application/json'})};
 })
 export class UserService {
 
-  userURL = 'http://localhost:8080/api/library/';
+  userURL = 'http://localhost:8080/api/library/user/';
 
   constructor(private httpClient: HttpClient) { }
 

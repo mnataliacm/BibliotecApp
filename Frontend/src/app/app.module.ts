@@ -28,7 +28,11 @@ import { AuthorFormComponent } from './components/author-form/author-form.compon
     AuthorComponent, 
     CategoryComponent, 
     RegisterComponent, 
-    LoginComponent, UserFormComponent, BookFormComponent, CategoryFormComponent, AuthorFormComponent,
+    LoginComponent, 
+    UserFormComponent, 
+    BookFormComponent, 
+    CategoryFormComponent, 
+    AuthorFormComponent,
 
   ],
   imports: [
