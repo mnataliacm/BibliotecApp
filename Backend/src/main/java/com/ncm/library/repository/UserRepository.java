@@ -10,10 +10,15 @@ import com.ncm.library.entity.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer>
-// public interface UserRepository extends JpaRepository<User, Integer> 
+// public interface UserRepository extends JpaRepository<User, Integer>
 {
 
-    Optional<User> findByName(String np);
-    boolean existsByName(String np);
+  Optional<User> findByName(String np);
+
+  boolean existsName(String np);
+
+  // Optional<User> findByEmail(String np);
+
+  // boolean existsEmail(String np);
 
 }
