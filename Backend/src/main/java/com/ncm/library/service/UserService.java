@@ -12,36 +12,41 @@ import com.ncm.library.repository.UserRepository;
 @Service
 @Transactional
 public class UserService {
-    
-    @Autowired
-    UserRepository userRepository;
 
-    public Iterable<User> getAll(){
-        Iterable<User> lista = userRepository.findAll();
-        return lista;
-    }
+  @Autowired
+  UserRepository userRepository;
 
-    public Optional<User> findById(Integer id){
-        return userRepository.findById(id);
-    }
+  public Iterable<User> findAll() {
+    Iterable<User> list = userRepository.findAll();
+    return list;
+  }
 
-    public Optional<User> findByName(String np){
-        return userRepository.findByName(np);
-    }
+  public long count() {
+    long count = userRepository.count();
+    return count;
+  }
 
-    public void save(User user){
-        userRepository.save(user);
-    }
+  public Optional<User> findById(Integer id) {
+    return userRepository.findById(id);
+  }
 
-    public void delete(Integer id){
-        userRepository.deleteById(id);
-    }
+  public Optional<User> findByEmail(String np) {
+    return userRepository.findByEmail(np);
+  }
 
-    public boolean existsName(String np){
-        return ((UserService) userRepository).existsName(np);
-    }
+  public void save(User user) {
+    userRepository.save(user);
+  }
 
-    public boolean existsById(Integer id){
-        return userRepository.existsById(id);
-    }
+  public void deleteById(Integer id) {
+    userRepository.deleteById(id);
+  }
+
+  public boolean existsById(Integer id) {
+    return userRepository.existsById(id);
+  }
+
+  public boolean existsByEmail(String np) {
+    return userRepository.existsByEmail(np);
+  }
 }

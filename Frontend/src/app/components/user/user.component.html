@@ -1,38 +1,44 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">Email</th>
-      <th scope="col">Móvil</th>
-      <th scope="col">Dirección</th>
-      <th scope="col">CP</th>
-      <th scope="col">Ciudad</th>
-    </tr>
-  </thead>
-  <tbody *ngFor="let user of people">
-    <tr>
-      <th scope="row">1</th>
-      <td>{{user.name}}</td>
-      <td>{{user.surname}}</td>
-      <td>{{user.email}}</td>
-      <td>{{user.mobile}}</td>
-      <td>{{user.address}}, {{user.num}} {{user.floor}}</td>
-      <td>{{user.CP}}</td>
-      <td>{{user.city}}</td>
-    </tr>
-  </tbody>
-  <tbody *ngIf="!server">
-    <tr>
-      <th scope="row">0</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>jacog&#64;email.com</td>
-      <td>111-111-111</td>
-      <td>Calle Biblioteca, 25</td>
-      <td>29000</td>
-      <td>Campanillas, Málaga</td>
-    </tr>
-  </tbody>
-</table>
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Email</th>
+        <th scope="col">Móvil</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">CP</th>
+        <th scope="col">Ciudad</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of people">
+      <tr>
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.surname}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.mobile}}</td>
+        <td>{{user.address}}, {{user.num}} {{user.floor}}</td>
+        <td>{{user.CP}}</td>
+        <td>{{user.city}}</td>
+        <td><button class="btn btn-primary" routerLink="/detalle/{{user.id}}">Ver</button></td>
+        <td><button class="btn btn-warning" routerLink="/editar/{{user.id}}">Editar</button></td>
+        <td><button class="btn btn-danger" (click)="onDelete(user.id)">Borrar</button></td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="!server">
+      <tr>
+        <th scope="row">0</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>jacog&#64;email.com</td>
+        <td>111-111-111</td>
+        <td>Calle Biblioteca, 25</td>
+        <td>29000</td>
+        <td>Campanillas, Málaga</td>
+      </tr>
+    </tbody>
+  </table>
+  <div><button class="btn btn-success btn-lg" routerLink="/nuevo">Nuevo Producto</button></div>
+</div>

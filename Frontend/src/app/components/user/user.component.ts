@@ -9,7 +9,7 @@ import { User } from '../../models/user';
 })
 export class UserComponent {
 
-  people: User[] = [];
+  public people: User[] = [];
   server: boolean = false;
 
   constructor(private userService: UserService) { }
@@ -24,11 +24,20 @@ export class UserComponent {
     this.userService.all().subscribe(data => {
       this.people = data;
       this.server = true;
-    },
-      (err: any) => {
-        console.log(err);
-      }
-    );
+    }),
+    (err: any) => {
+      console.log(err);
+    }
   }
 
+  onDelete(id: number | any): void {
+    if (confirm('¿Estás seguro?')) {
+      this.userService.delete(id).subscribe(data => {
+        this.people = data;
+      });
+    }
+  }
 }
+
+// P91VD-TET8-8RM4-EFBY philips
+// VERANO10 bosh y balay

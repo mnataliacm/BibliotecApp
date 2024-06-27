@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
 
-const header = {headers: new HttpHeaders({'Content-TYpe': 'application/json'})};
+const header = { headers: new HttpHeaders({ 'Content-TYpe': 'application/json' }) };
 
 @Injectable({
   providedIn: 'root'
@@ -33,4 +33,14 @@ export class UserService {
   public delete(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.userURL + `delete/${id}`, header);
   }
+
+  // getListUsers() {
+  //   this.all().subscribe(data => {
+  //     const people = data;
+  //     this.conteo = data.length;
+  //     // return this.conteo = people.length;
+  //     console.log("conteo en servicio", this.conteo);
+  //   })
+  // }
+
 }
