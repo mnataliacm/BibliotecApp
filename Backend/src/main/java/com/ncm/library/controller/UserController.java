@@ -56,7 +56,7 @@ public class UserController {
   }
 
   @PutMapping("/modify/{id}")
-  public ResponseEntity<?> update(@RequestBody User user, @PathVariable("id") Integer id) {
+  public ResponseEntity<?> update(@RequestBody User user, @PathVariable Integer id) {
     if (!userService.existsById(id))
       return new ResponseEntity(new Message("no existe ese usuario"),
           HttpStatus.NOT_FOUND);
