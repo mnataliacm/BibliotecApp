@@ -29,11 +29,11 @@ public class UserController {
     return new ResponseEntity<Iterable<User>>(people, HttpStatus.OK);
   }
 
-  @GetMapping("/detail/{id}")
-  public ResponseEntity<User> getOne(@PathVariable Integer id) {
-    if (!userService.existsById(id))
+  @GetMapping("/detail/{IDuser}")
+  public ResponseEntity<User> getOne(@PathVariable Integer IDuser) {
+    if (!userService.existsById(IDuser))
       return new ResponseEntity(new Message("no existe ese usuario"), HttpStatus.NOT_FOUND);
-    User user = userService.findById(id).get();
+    User user = userService.findById(IDuser).get();
     return new ResponseEntity<User>(user, HttpStatus.OK);
   }
 
@@ -55,9 +55,9 @@ public class UserController {
     return new ResponseEntity(new Message("usuario guardado"), HttpStatus.CREATED);
   }
 
-  @PutMapping("/modify/{id}")
-  public ResponseEntity<?> update(@RequestBody User user, @PathVariable Integer id) {
-    if (!userService.existsById(id))
+  @PutMapping("/modify/{IDuser}")
+  public ResponseEntity<?> update(@RequestBody User user, @PathVariable Integer IDuser) {
+    if (!userService.existsById(IDuser))
       return new ResponseEntity(new Message("no existe ese usuario"),
           HttpStatus.NOT_FOUND);
     if (StringUtils.isBlank(user.getName()))
@@ -73,10 +73,11 @@ public class UserController {
       return new ResponseEntity(new Message("el móvil es obligatorio"),
           HttpStatus.BAD_REQUEST);
     if (userService.existsByEmail(user.getEmail()) &&
-        userService.findByEmail(user.getEmail()).get().getId() != id)
+        userService.findByEmail(user.getEmail()).get().getIDuser() != IDuser)
       return new ResponseEntity(new Message("ese email ya existe"),
           HttpStatus.BAD_REQUEST);
-    User userUpdate = userService.findById(id).get();
+    User userUpdate = userService.findById(IDuser).get();
+    userUpdate.setMember(user.getMember());
     userUpdate.setName(user.getName());
     userUpdate.setSurname(user.getSurname());
     userUpdate.setEmail(user.getEmail());
@@ -85,18 +86,19 @@ public class UserController {
     userUpdate.setNum(user.getNum());
     userUpdate.setFloor(user.getFloor());
     userUpdate.setCP(user.getCP());
+    userUpdate.setTown(user.getTown());
     userUpdate.setCity(user.getCity());
     userService.save(userUpdate);
     return new ResponseEntity(new Message("usuario actualizado"),
         HttpStatus.CREATED);
   }
 
-  @DeleteMapping("/delete/{id}")
-  public ResponseEntity<?> delete(@PathVariable Integer id) {
-    if (!userService.existsById(id))
+  @DeleteMapping("/delete/{IDuser}")
+  public ResponseEntity<?> delete(@PathVariable Integer IDuser) {
+    if (!userService.existsById(IDuser))
       return new ResponseEntity(new Message("no existe ese usuario"),
           HttpStatus.NOT_FOUND);
-    userService.deleteById(id);
+    userService.deleteById(IDuser);
     return new ResponseEntity(new Message("usuario eliminado"), HttpStatus.OK);
   }
 }

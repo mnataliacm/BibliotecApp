@@ -10,23 +10,34 @@ public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
 
-  private Integer id;
+  private Integer IDuser;
+  private Integer member;
   private String name;
   private String surname;
   private String email;
   private String mobile;
   private String address;
   private Integer num;
-  private Integer floor;
+  private String floor;
   private Integer CP;
+  private String town;
   private String city;
 
-  public Integer getId() {
-    return id;
+  public Integer getIDuser() {
+    return IDuser;
   }
 
-  public void setIduser(Integer id) {
-    this.id = id;
+  public void setIDuser(Integer IDuser) {
+    this.IDuser = IDuser;
+  }
+
+
+  public Integer getMember() {
+    return member;
+  }
+
+  public void setMember(Integer member) {
+    this.member = member;
   }
 
   public String getName() {
@@ -77,11 +88,11 @@ public class User {
     this.num = num;
   }
 
-  public Integer getFloor() {
+  public String getFloor() {
     return floor;
   }
 
-  public void setFloor(Integer floor) {
+  public void setFloor(String floor) {
     this.floor = floor;
   }
 
@@ -92,7 +103,15 @@ public class User {
   public void setCP(Integer CP) {
     this.CP = CP;
   }
-
+  
+  public String getTown() {
+    return town;
+  }
+  
+  public void setTown(String town) {
+    this.town = town;
+  }
+  
   public String getCity() {
     return city;
   }
@@ -100,4 +119,5 @@ public class User {
   public void setCity(String city) {
     this.city = city;
   }
+
 }

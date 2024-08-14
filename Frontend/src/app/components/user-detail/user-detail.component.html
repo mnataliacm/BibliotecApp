@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h5 class="modal-title">Detalles del Soci&#64; {{ data.iduser }}</h5>
+</div>
+<div class="modal-body">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">{{ data.name }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ data.surname }}</h6>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Email: {{ data.email }}</p>
+      <p class="card-text">Teléfono: {{ data.mobile }}</p>
+      <p class="card-text">Dirección: {{ data.address }}, {{ data.num }} {{ data.floor }}</p>
+      <p class="card-text">CP: {{ data.cp }}</p>
+      <p class="card-text">Población: {{ data.town }}</p>
+      <p class="card-text">Ciudad: {{ data.city }}</p>
+      
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="onCancel()">Cerrar</button>
+</div>

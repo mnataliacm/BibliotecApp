@@ -19,6 +19,7 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 import { BookFormComponent } from './components/book-form/book-form.component';
 import { CategoryFormComponent } from './components/category-form/category-form.component';
 import { AuthorFormComponent } from './components/author-form/author-form.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { AuthorFormComponent } from './components/author-form/author-form.compon
     UserFormComponent, 
     BookFormComponent, 
     CategoryFormComponent, 
-    AuthorFormComponent,
+    AuthorFormComponent, UserDetailComponent,
 
   ],
   imports: [

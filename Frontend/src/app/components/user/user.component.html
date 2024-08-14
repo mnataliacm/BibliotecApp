@@ -2,43 +2,49 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <!-- <th scope="col">#</th> -->
+        <th scope="col">Soci&#64;</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
         <th scope="col">Email</th>
         <th scope="col">Móvil</th>
-        <th scope="col">Dirección</th>
+        <!-- <th scope="col">Dirección</th>
         <th scope="col">CP</th>
-        <th scope="col">Ciudad</th>
+        <th scope="col">Población</th>
+        <th scope="col">Ciudad</th> -->
       </tr>
     </thead>
     <tbody *ngFor="let user of people">
       <tr>
-        <th scope="row">{{user.id}}</th>
+        <th scope="row">{{user.member}}</th>
+        <!-- <td>{{user.iduser}}</td> -->
         <td>{{user.name}}</td>
         <td>{{user.surname}}</td>
         <td>{{user.email}}</td>
         <td>{{user.mobile}}</td>
-        <td>{{user.address}}, {{user.num}} {{user.floor}}</td>
-        <td>{{user.CP}}</td>
-        <td>{{user.city}}</td>
-        <td><button class="btn btn-primary" routerLink="/detalle/{{user.id}}">Ver</button></td>
-        <td><button class="btn btn-warning" routerLink="/editar/{{user.id}}">Editar</button></td>
-        <td><button class="btn btn-danger" (click)="onDelete(user.id)">Borrar</button></td>
+        <!-- <td>{{user.address}}, {{user.num}} {{user.floor}}</td>
+        <td>{{user.cp}}</td>
+        <td>{{user.town}}</td>
+        <td>{{user.city}}</td> -->
+        <td><button class="btn btn-primary" routerLink="/detalle/{{user.iduser}}" (click)="viewUserDetails(user)">Ver</button></td>
+        <td><button class="btn btn-warning" routerLink="/editar/{{user.iduser}}" (click)="openUserDialog(user)">Editar</button></td>
+        <td><button class="btn btn-danger" (click)="onDelete(user.iduser)">Borrar</button></td>
       </tr>
     </tbody>
     <tbody *ngIf="!server">
       <tr>
         <th scope="row">0</th>
+        <td>000</td>
         <td>Jacob</td>
         <td>Thornton</td>
         <td>jacog&#64;email.com</td>
         <td>111-111-111</td>
         <td>Calle Biblioteca, 25</td>
         <td>29000</td>
-        <td>Campanillas, Málaga</td>
+        <td>Campanillas</td>
+        <td>Málaga</td>
       </tr>
     </tbody>
   </table>
-  <div><button class="btn btn-success btn-lg" routerLink="/nuevo">Nuevo Producto</button></div>
+  <div><button class="btn btn-success btn-lg" (click)="openUserDialog()">Nuevo Soci&#64;</button></div>
 </div>

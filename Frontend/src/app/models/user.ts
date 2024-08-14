@@ -1,12 +1,14 @@
 export class User {
-    id?: number;
+    iduser?: number;
+    member?: number;
     name?: string;
     surname?: string;
     email?: string;
     mobile?: string;
     address?: string;
     num?: number;
-    floor?: number;
-    CP?: number;
+    floor?: string;
+    cp?: number;
+    town?: string;
     city?: string;
 }

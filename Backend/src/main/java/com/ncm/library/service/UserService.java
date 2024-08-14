@@ -26,8 +26,8 @@ public class UserService {
     return count;
   }
 
-  public Optional<User> findById(Integer id) {
-    return userRepository.findById(id);
+  public Optional<User> findById(Integer IDuser) {
+    return userRepository.findById(IDuser);
   }
 
   public Optional<User> findByEmail(String np) {
@@ -38,12 +38,12 @@ public class UserService {
     userRepository.save(user);
   }
 
-  public void deleteById(Integer id) {
-    userRepository.deleteById(id);
+  public void deleteById(Integer IDuser) {
+    userRepository.deleteById(IDuser);
   }
 
-  public boolean existsById(Integer id) {
-    return userRepository.existsById(id);
+  public boolean existsById(Integer IDuser) {
+    return userRepository.existsById(IDuser);
   }
 
   public boolean existsByEmail(String np) {

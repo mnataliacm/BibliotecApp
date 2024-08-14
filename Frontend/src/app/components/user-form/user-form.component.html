@@ -1,1 +1,87 @@
-<p>user-form works!</p>
+<h3 mat-dialog-title>Datos Soci&#64;</h3>
+
+<div class="form-container">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col">
+        <div class="form-floating">
+          <input type="number" class="form-control" id="member" placeholder="member" formControlName="member">
+          <label for="member">Soci&#64;</label>
+        </div>        
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="name" placeholder="Nombre" formControlName="name">
+          <label for="name">Nombre</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="surname" placeholder="Apellidos" formControlName="surname">
+          <label for="surname">Apellidos</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-floating">
+          <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+          <label for="email">Email</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="mobile" placeholder="Móvil" formControlName="mobile">
+          <label for="mobile">Móvil</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="cp" placeholder="CP" formControlName="cp">
+          <label for="cp">CP</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="city" placeholder="Provincia" formControlName="city">
+          <label for="city">Provincia</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="address" placeholder="Calle" formControlName="address">
+          <label for="address">Calle</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="num" placeholder="Número" formControlName="num">
+          <label for="num">Número</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floor" placeholder="Piso" formControlName="floor">
+          <label for="floor">Piso</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="town" placeholder="Población" formControlName="town">
+          <label for="town">Población</label>
+        </div>        
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button mat-button (click)="onCancel()">Cerrar</button>
+      <button mat-raised-button color="primary" type="submit">Aceptar</button>
+    </div>
+  </form>
+</div>
