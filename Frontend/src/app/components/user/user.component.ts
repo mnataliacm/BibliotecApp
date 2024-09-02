@@ -33,6 +33,7 @@ export class UserComponent {
       width: '400px',
       data: user
     });
+    this.router.navigate(['/user']);
   }
 
   openUserDialog(user?: User) {
@@ -72,6 +73,7 @@ export class UserComponent {
       (data: User[]) => {
         this.people = data;
         this.server = true;
+        this.router.navigate(['/user']);
       },
       (error) => {
         console.error('Error al cargar usuarios', error);
@@ -85,6 +87,7 @@ export class UserComponent {
       this.userService.delete(id).subscribe(data => {
         this.people = data;
       });
+      this.router.navigate(['/user']);
     }
   }
 

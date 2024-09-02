@@ -4,18 +4,14 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-// import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import com.ncm.library.entity.User;
 import com.ncm.library.service.UserService;
 import com.ncm.library.dto.Message;
 
-// @Controller // This means that this class is a Controller
-// @RequestMapping(path="/library")
 @RestController
 @RequestMapping("/api/library/user")
-// @RequestMapping("/library")
 @CrossOrigin(origins = "http://localhost:4200")
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class UserController {
@@ -27,6 +23,12 @@ public class UserController {
   public ResponseEntity<Iterable<User>> getAllUsers() {
     Iterable<User> people = userService.findAll();
     return new ResponseEntity<Iterable<User>>(people, HttpStatus.OK);
+  }
+
+  @GetMapping("/count")
+  public ResponseEntity<Long> count() {
+    long count = userService.count();
+    return new ResponseEntity<Long>(count, HttpStatus.OK);
   }
 
   @GetMapping("/detail/{IDuser}")

@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { User } from '../../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-form',
@@ -19,7 +20,8 @@ export class UserFormComponent {
     private userService: UserService,
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<UserFormComponent>,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
   ) {
     this.userForm = this.formBuilder.group({
       iduser: [data?.iduser || null],
@@ -64,6 +66,7 @@ export class UserFormComponent {
         this.userService.modify(this.userForm.value, this.userForm.value.iduser).subscribe(
           (response: User) => {
             console.log('Usuario modificado correctamente', response);
+            this.router.navigate(['/user']);
             this.dialogRef.close(true); // Cierra el diálogo y pasa un valor indicando éxito
           },
           (error: any) => {
@@ -74,6 +77,7 @@ export class UserFormComponent {
         this.userService.add(this.userForm.value).subscribe(
           (response: User) => {
             console.log('Usuario añadido correctamente', response);
+            this.router.navigate(['/user']);
             this.dialogRef.close(true); // Cierra el diálogo y pasa un valor indicando éxito
           },
           (error: any) => {
