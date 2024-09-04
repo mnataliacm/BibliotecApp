@@ -16,6 +16,7 @@ public class Book {
   private Integer IDgenre;
   private Integer IDauthor;
   private Integer IDeditorial;
+  private String image;
   
   public Long getISBN() {
     return ISBN;
@@ -53,7 +54,11 @@ public class Book {
   public void setIDeditorial(Integer iDeditorial) {
     IDeditorial = iDeditorial;
   }
-
-  
+  public String getImage() {
+    return image;
+  }
+  public void setImage(String image) {
+    this.image = image;
+  }  
 
 }
