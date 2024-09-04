@@ -34,14 +34,6 @@ public class AuthorService {
     return authorRepository.findByName(np);
   }
 
-  public void save(Author author) {
-    authorRepository.save(author);
-  }
-
-  public void deleteById(Integer IDauthor) {
-    authorRepository.deleteById(IDauthor);
-  }
-
   public boolean existsById(Integer IDauthor) {
     return authorRepository.existsById(IDauthor);
   } 
@@ -49,5 +41,13 @@ public class AuthorService {
   public boolean existsByName(String np) {
     return authorRepository.existsByName(np);
   } 
+
+    public void save(Author author) {
+    authorRepository.save(author);
+  }
+
+  public void deleteById(Integer IDauthor) {
+    authorRepository.deleteById(IDauthor);
+  }
   
 }
