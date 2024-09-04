@@ -31,11 +31,11 @@ public class AuthorController {
         return new ResponseEntity<Long>(count, HttpStatus.OK);
     }
 
-    @GetMapping("/detail/{IDauthor}")
-    public ResponseEntity<Author> getOne(@PathVariable Integer IDauthor) {
-        if (!authorService.existsById(IDauthor))
+    @GetMapping("/detail/{idauthor}")
+    public ResponseEntity<Author> getOne(@PathVariable Integer idauthor) {
+        if (!authorService.existsById(idauthor))
             return new ResponseEntity(new Message("no existe ese autor"), HttpStatus.NOT_FOUND);
-        Author author = authorService.findById(IDauthor).get();
+        Author author = authorService.findById(idauthor).get();
         return new ResponseEntity<Author>(author, HttpStatus.OK);
     }
 
@@ -49,25 +49,25 @@ public class AuthorController {
         return new ResponseEntity(new Message("autor guardado"), HttpStatus.CREATED);
     }
 
-    @PostMapping("/modify/{IDauthor}")
-    public ResponseEntity<?> update(@PathVariable Integer IDauthor, @RequestBody Author author) {
-        if (!authorService.existsById(IDauthor))
+    @PostMapping("/modify/{idauthor}")
+    public ResponseEntity<?> update(@PathVariable Integer idauthor, @RequestBody Author author) {
+        if (!authorService.existsById(idauthor))
             return new ResponseEntity(new Message("no existe ese autor"), HttpStatus.NOT_FOUND);
         if (StringUtils.isBlank(author.getName()))
             return new ResponseEntity(new Message("el nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (authorService.existsByName(author.getName()) && authorService.findByName(author.getName()).get().getIDauthor() != IDauthor)
+        if (authorService.existsByName(author.getName()) && authorService.findByName(author.getName()).get().getidauthor() != idauthor)
             return new ResponseEntity(new Message("ese nombre ya existe"), HttpStatus.BAD_REQUEST);
-        Author authorUpdate = authorService.findById(IDauthor).get();
+        Author authorUpdate = authorService.findById(idauthor).get();
         authorUpdate.setName(author.getName());
         authorService.save(authorUpdate);
         return new ResponseEntity(new Message("autor actualizado"), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/delete/{IDauthor}")
-    public ResponseEntity<?> delete(@PathVariable Integer IDauthor) {
-        if (!authorService.existsById(IDauthor))
+    @DeleteMapping("/delete/{idauthor}")
+    public ResponseEntity<?> delete(@PathVariable Integer idauthor) {
+        if (!authorService.existsById(idauthor))
             return new ResponseEntity(new Message("no existe ese autor"), HttpStatus.NOT_FOUND);
-        authorService.deleteById(IDauthor);
+        authorService.deleteById(idauthor);
         return new ResponseEntity(new Message("autor eliminado"), HttpStatus.OK);
     }
 

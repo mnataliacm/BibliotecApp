@@ -1,1 +1,23 @@
-<p>category-form works!</p>
+<div class="form-container">
+  <form [formGroup]="genreForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col">
+        <div class="form-floating">
+          <input type="number" class="form-control" id="id" placeholder="id" formControlName="idauthor">
+          <label for="member">ID</label>
+        </div>        
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="name" placeholder="Nombre" formControlName="name">
+          <label for="name">Nombre</label>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <button mat-button (click)="onCancel()">Cerrar</button>
+      <button mat-raised-button color="primary" type="submit">Aceptar</button>
+    </div>
+  </form>
+</div>
+

@@ -14,7 +14,7 @@ public class Book {
   private String title;
   private Integer year;
   private Integer IDgenre;
-  private Integer IDauthor;
+  private Integer idauthor;
   private Integer IDeditorial;
   private String image;
   
@@ -42,11 +42,11 @@ public class Book {
   public void setIDgenre(Integer iDgenre) {
     IDgenre = iDgenre;
   }
-  public Integer getIDauthor() {
-    return IDauthor;
+  public Integer getidauthor() {
+    return idauthor;
   }
-  public void setIDauthor(Integer iDauthor) {
-    IDauthor = iDauthor;
+  public void setidauthor(Integer idauthor) {
+    this.idauthor = idauthor;
   }
   public Integer getIDeditorial() {
     return IDeditorial;

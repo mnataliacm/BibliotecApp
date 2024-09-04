@@ -1,0 +1,28 @@
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <!-- <th scope="col">#</th> -->
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let editorial of editorials">
+      <tr>
+        <th scope="row">{{editorial.ideditorial}}</th>
+        <td scope="row">{{editorial.name}}</td>
+        <td><button class="btn btn-warning" routerLink="/editar/{{editorial.ideditorial}}"
+            (click)="openEditorialDialog(editorial)">Editar</button></td>
+        <td><button class="btn btn-danger" (click)="onDelete(editorial.ideditorial)">Borrar</button></td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="!server">
+      <tr>
+        <th scope="row">0</th>
+        <td>000</td>
+        <td>Nombre de la editorial</td>
+      </tr>
+    </tbody>
+  </table>
+  <div><button class="btn btn-success btn-lg" (click)="openEditorialDialog()">Nueva Editorial</button></div>
+</div>

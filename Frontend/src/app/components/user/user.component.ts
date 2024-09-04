@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,7 +11,7 @@ import { UserDetailComponent } from '../user-detail/user-detail.component';
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
 
   public people: User[] = [];
   server: boolean = false;
@@ -27,7 +27,21 @@ export class UserComponent {
       this.listPeople();
     }
   }
-
+  
+  listPeople(): void {    
+    this.userService.all().subscribe(
+      (data: User[]) => {
+        this.people = data;
+        this.server = true;
+        this.router.navigate(['/user']);
+      },
+      (error) => {
+        console.error('Error al cargar usuarios', error);
+        this.server = false;
+      }
+    );
+  }
+  
   viewUserDetails(user: User): void {
     this.dialog.open(UserDetailComponent, {
       width: '400px',
@@ -65,21 +79,6 @@ export class UserComponent {
       }
       this.router.navigate(['/user']);
     });
-  }
-  
-
-  listPeople(): void {    
-    this.userService.all().subscribe(
-      (data: User[]) => {
-        this.people = data;
-        this.server = true;
-        this.router.navigate(['/user']);
-      },
-      (error) => {
-        console.error('Error al cargar usuarios', error);
-        this.server = false;
-      }
-    );
   }
 
   onDelete(id: number | any): void {

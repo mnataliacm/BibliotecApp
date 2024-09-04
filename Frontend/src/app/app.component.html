@@ -13,21 +13,28 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="user">Soci&#64;s 
-          <span class="badge text-bg-primary rounded-pill">{{ conteoUsers }}</span>
+          <span class="badge text-bg-primary rounded-pill">{{ countUsers }}</span>
         </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="book">Libros
-            <span class="badge text-bg-primary rounded-pill">{{ conteoUsers }}</span>
+            <span class="badge text-bg-primary rounded-pill">{{ countBooks }}</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="author">Autor&#64;s
-            <span class="badge text-bg-primary rounded-pill">{{ conteoUsers }}</span>
+          <a class="nav-link" routerLink="author">Autores
+            <span class="badge text-bg-primary rounded-pill">{{ countAuthors }}</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="category">Categorías</a>
+          <a class="nav-link" routerLink="category">Categorías
+          <span class="badge text-bg-primary rounded-pill">{{ countCategories }}</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="editorial">Editoriales
+          <span class="badge text-bg-primary rounded-pill">{{ countEditorials }}</span>
+          </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

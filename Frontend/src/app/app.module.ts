@@ -20,12 +20,19 @@ import { BookFormComponent } from './components/book-form/book-form.component';
 import { CategoryFormComponent } from './components/category-form/category-form.component';
 import { AuthorFormComponent } from './components/author-form/author-form.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import {MatCardModule} from '@angular/material/card';
+import { BookComponent } from './components/book/book.component';
+import { EditorialComponent } from './components/editorial/editorial.component';
+import { EditorialFormComponent } from './components/editorial-form/editorial-form.component';
+import { BorrowComponent } from './components/borrow/borrow.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     HomeComponent, 
     UserComponent, 
+    BookComponent,
     AuthorComponent, 
     CategoryComponent, 
     RegisterComponent, 
@@ -33,7 +40,9 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
     UserFormComponent, 
     BookFormComponent, 
     CategoryFormComponent, 
-    AuthorFormComponent, UserDetailComponent,
+    AuthorFormComponent, 
+    UserDetailComponent, 
+    BookDetailComponent, EditorialComponent, EditorialFormComponent, BorrowComponent,
 
   ],
   imports: [
@@ -45,7 +54,7 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
     HttpClientModule,
     CdkTableModule,
     AppRoutingModule,
-    
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -61,7 +61,7 @@ public class BookController {
     bookUpdate.setTitle(book.getTitle());
     bookUpdate.setYear(book.getYear());
     bookUpdate.setIDgenre(book.getIDgenre());
-    bookUpdate.setIDauthor(book.getIDauthor());
+    bookUpdate.setidauthor(book.getidauthor());
     bookUpdate.setIDeditorial(book.getIDeditorial());
     bookService.save(bookUpdate);
     return new ResponseEntity(new Message("libro actualizado"), HttpStatus.CREATED);

@@ -1,8 +1,12 @@
 export class Book {
-  ISBN?: number;
+  isbn?: number | any;
   title?: string;
   year?: number;
-  IDgenre?: number;
-  IDauthor?: number;
-  IDeditorial?: number;
+  idgenre?: number;
+  idauthor?: number;
+  ideditorial?: number;
+  image?: string;
+  authorName?: string;
+  genreName?: string;
+  editorialName?: string;
 }

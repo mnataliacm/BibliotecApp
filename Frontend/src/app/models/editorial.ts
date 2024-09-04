@@ -1,4 +1,4 @@
-export class Book {
-  IDeditorial?: number;
+export class Editorial {
+  ideditorial?: number;
   name?: string;
 }

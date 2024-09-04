@@ -1,17 +1,26 @@
-<div ngbAccordion>
-    <div ngbAccordionItem>
-      <h2 ngbAccordionHeader>
-        <button ngbAccordionButton>First</button>
-      </h2>
-      <div ngbAccordionCollapse>
-        <div ngbAccordionBody>
-          <ng-template>Content for the first item</ng-template>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- <div ngbAccordion #accordion="NgbAccordion">
-    <div ngbAccordionItem="first" #first="ngbAccordionItem" [collapsed]="false"> ... </div>
-  </div> -->
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <!-- <th scope="col">#</th> -->
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let author of authors">
+      <tr>
+        <th scope="row">{{author.idauthor}}</th>
+         <td>{{author.name}}</td>
+        <td><button class="btn btn-warning" routerLink="/editar/{{author.idauthor}}" (click)="openAuthorDialog(author)">Editar</button></td>
+        <td><button class="btn btn-danger" (click)="onDelete(author.idauthor)">Borrar</button></td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="!server">
+      <tr>
+        <th scope="row">0</th>
+        <td>Nombre del escritor</td>
+      </tr>
+    </tbody>
+  </table>
+  <div><button class="btn btn-success btn-lg" (click)="openAuthorDialog()">Nuevo Autor-a</button></div>
+</div>

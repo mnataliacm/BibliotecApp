@@ -1,6 +1,6 @@
 export class Borrow {
-  ISBN?: number;
-  IDuser?: number;
+  isbn?: number;
+  iduser?: number;
   departure?: Date;
   arrive?: Date;
 }

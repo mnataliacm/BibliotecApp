@@ -10,15 +10,15 @@ public class Author {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   
-  private Integer IDauthor;
+  private Integer idauthor;
   private String name;
 
-  public Integer getIDauthor() {
-    return IDauthor;
+  public Integer getidauthor() {
+    return idauthor;
   }
 
-  public void setIDauthor(Integer iDauthor) {
-    this.IDauthor = iDauthor;
+  public void setidauthor(Integer idauthor) {
+    this.idauthor = idauthor;
   }
 
   public String getName() {

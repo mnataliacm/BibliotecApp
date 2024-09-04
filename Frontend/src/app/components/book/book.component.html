@@ -1,82 +1,58 @@
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="..." class="img-fluid rounded-start" alt="...">
+<div class="container">
+  <div class="row ">
+    <div class="col-md-4" *ngFor="let book of books">
+      <div class="card mb-3 ">
+        <div class="card-header">
+          <h5 class="card-title text-truncate">{{ book.title }}</h5>
+          <p class="card-subtitle text-truncate"> {{ book.authorName }} </p>
         </div>
-        <div class="col-md-8">
+        <div class="row g-0 ">
+          <div class="col-md-4 d-flex align-items-center justify-content-center">
+            <img src="../../../assets/images/book2.png" class="card-img-top" alt="Imagen libro" *ngIf="!book.image">
+            <img src="{{book.image}}" class="img-fluid rounded-start" alt="Portada libro" *ngIf="book.image">
+          </div>
+          <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+              <!-- <h5 class="card-title text-truncate" >{{ book.title }}</h5> -->
+              <!-- <p class="card-text text-truncate">Autor: {{ book.authorName }}</p> -->
+              <p class="card-text">Género: {{ book.genreName }} </p>
+              <p class="card-text">Editorial: {{ book.editorialName }} </p>
+              <p class="card-text">ISBN: {{ book.isbn }} </p>
+              <p class="card-text">Año edición: {{ book.year }}</p>
+              <a href="#" class="btn btn-primary ">Préstamo</a>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-
-<div class="card-group">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="row row-cols-1 row-cols-md-2 g-4">
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<div class="container" *ngIf="!server">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let n of [1, 2, 3, 4, 5]">
+      <div class="card mb-3">
+        <div class="card-header">
+          <h5 class="card-title text-truncate">Título del libro {{n}}</h5>
+          <p class="card-subtitle text-truncate">Autor del libro</p>
         </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <div class="row g-0">
+          <div class="d-flex align-items-center justify-content-center">
+            <img src="https://ionicframework.com/docs/img/demos/thumbnail.svg" class="card-img-top"
+              alt="Silueta de montañas" width="100px" height="100px">
+            <div class="col-md-8">
+              <div class="card-body">
+                <!-- <h4 class="card-title">Título del libro {{n}}</h4> -->
+                <!-- <h5>Autor del libro</h5> -->
+                <p>Genero: Literatura</p>
+                <p>Edición año: 0000</p>
+                <p>Editorial: Lalala Lelele</p>
+                <a href="#" class="btn btn-primary ">Préstamo</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>

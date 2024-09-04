@@ -10,28 +10,28 @@ const header = { headers: new HttpHeaders({ 'Content-TYpe': 'application/json' }
 })
 export class BookService {
 
-  userURL = 'http://localhost:8080/api/library/book/';
+  private bookURL = 'http://localhost:8080/api/library/book/';
 
   constructor(private httpClient: HttpClient) { }
 
   public all(): Observable<Book[]> {
-    return this.httpClient.get<Book[]>(this.userURL + 'all', header);
+    return this.httpClient.get<Book[]>(this.bookURL + 'all', header);
   }
 
   public detail(id: number): Observable<Book> {
-    return this.httpClient.get<Book>(this.userURL + `detail/${id}`, header);
+    return this.httpClient.get<Book>(this.bookURL + `detail/${id}`, header);
   }
 
   public add(producto: Book): Observable<any> {
-    return this.httpClient.post<any>(this.userURL + 'add', producto, header);
+    return this.httpClient.post<any>(this.bookURL + 'add', producto, header);
   }
 
   public modify(producto: Book, id: number): Observable<any> {
-    return this.httpClient.put<any>(this.userURL + `modify/${id}`, producto, header);
+    return this.httpClient.put<any>(this.bookURL + `modify/${id}`, producto, header);
   }
 
   public delete(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.userURL + `delete/${id}`, header);
+    return this.httpClient.delete<any>(this.bookURL + `delete/${id}`, header);
   }
 
 }

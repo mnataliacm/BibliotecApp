@@ -7,6 +7,7 @@ import { AuthorComponent } from './components/author/author.component';
 import { CategoryComponent } from './components/category/category.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { EditorialComponent } from './components/editorial/editorial.component';
 
 const routes: Routes = [ 
   {path: '', component: HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'book', component: BookComponent},
   {path: 'author', component: AuthorComponent},
   {path: 'category', component: CategoryComponent},
+  {path: 'editorial', component: EditorialComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: '**', redirectTo: 'home', pathMatch: 'full'}

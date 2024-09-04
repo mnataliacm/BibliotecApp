@@ -26,16 +26,16 @@ public class AuthorService {
     return count;
   }
 
-  public Optional<Author> findById(Integer IDauthor) {
-    return authorRepository.findById(IDauthor);
+  public Optional<Author> findById(Integer idauthor) {
+    return authorRepository.findById(idauthor);
   }
 
   public Optional<Author> findByName(String np) {
     return authorRepository.findByName(np);
   }
 
-  public boolean existsById(Integer IDauthor) {
-    return authorRepository.existsById(IDauthor);
+  public boolean existsById(Integer idauthor) {
+    return authorRepository.existsById(idauthor);
   } 
 
   public boolean existsByName(String np) {
@@ -46,8 +46,8 @@ public class AuthorService {
     authorRepository.save(author);
   }
 
-  public void deleteById(Integer IDauthor) {
-    authorRepository.deleteById(IDauthor);
+  public void deleteById(Integer idauthor) {
+    authorRepository.deleteById(idauthor);
   }
   
 }
