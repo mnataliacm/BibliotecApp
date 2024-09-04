@@ -13,41 +13,39 @@ import com.ncm.library.repository.EditorialRepository;
 @Transactional
 public class EditorialService {
 
-    @Autowired
-    private EditorialRepository editorialRepository;
+  @Autowired
+  private EditorialRepository editorialRepository;
 
-    public Iterable<Editorial> findAll() {
-        return editorialRepository.findAll();
-    }
+  public Iterable<Editorial> findAll() {
+    return editorialRepository.findAll();
+  }
 
-    public long count() {
-        return editorialRepository.count();
-    }
+  public long count() {
+    return editorialRepository.count();
+  }
 
-    public Optional<Editorial> findById(Integer IDeditorial) {
-        return editorialRepository.findById(IDeditorial);
-    }
+  public Optional<Editorial> findById(Integer IDeditorial) {
+    return editorialRepository.findById(IDeditorial);
+  }
 
-        public Optional<Editorial> findByName(String name) {
-        return editorialRepository.findByName(name);
-    }
-    
-    public boolean existsById(Integer IDeditorial) {
-        return editorialRepository.existsById(IDeditorial);
-    }
+  public Optional<Editorial> findByName(String name) {
+    return editorialRepository.findByName(name);
+  }
 
-    public boolean existsByName(String name) {
-        return editorialRepository.existsByName(name);
-    }
+  public boolean existsById(Integer IDeditorial) {
+    return editorialRepository.existsById(IDeditorial);
+  }
 
-    public void save(Editorial editorial) {
-        editorialRepository.save(editorial);
-    }
+  public boolean existsByName(String name) {
+    return editorialRepository.existsByName(name);
+  }
 
-    public void deleteById(Integer IDeditorial) {
-        editorialRepository.deleteById(IDeditorial);
-    }
+  public void save(Editorial editorial) {
+    editorialRepository.save(editorial);
+  }
 
-
+  public void deleteById(Integer IDeditorial) {
+    editorialRepository.deleteById(IDeditorial);
+  }
 
 }
