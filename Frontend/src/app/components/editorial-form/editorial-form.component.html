@@ -1,22 +1,29 @@
-<div class="form-container">
-  <form [formGroup]="editorialForm" (ngSubmit)="onSubmit()">
-    <div class="row">
-      <div class="col">
-        <div class="form-floating">
-          <input type="number" class="form-control" id="id" placeholder="id" formControlName="ideditorial">
-          <label for="member">ID</label>
-        </div>        
-      </div>
-      <div class="col">
-        <div class="form-floating">
-          <input type="text" class="form-control" id="name" placeholder="Nombre" formControlName="name">
-          <label for="name">Nombre</label>
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Datos editorial</h4>
+  </div>
+  <div class="card-body">
+    <div class="form-container">
+      <form [formGroup]="editorialForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-floating">
+              <input type="number" class="form-control" id="ideditorial" placeholder="ideditorial" formControlName="ideditorial">
+              <label for="ideditorial">ID</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="name" placeholder="Nombre" formControlName="name">
+              <label for="name">Nombre</label>
+            </div>
+          </div>
         </div>
-      </div>
+        <div class="card-footer d-grid gap-5 d-md-flex justify-content-center ">
+          <button class="btn btn-danger" (click)="onCancel()">Cerrar</button>
+          <button class="btn btn-primary" type="submit">Añadir</button>
+        </div>
+      </form>
     </div>
-    <div class="button-container">
-      <button mat-button (click)="onCancel()">Cerrar</button>
-      <button mat-raised-button color="primary" type="submit">Aceptar</button>
-    </div>
-  </form>
+  </div>
 </div>

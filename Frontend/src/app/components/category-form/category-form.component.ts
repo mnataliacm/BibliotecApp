@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { GenreService } from '../../services/genre.service';
+import { CategoryService } from '../../services/category.service';
 import { CategoryComponent } from '../category/category.component';
 
 @Component({
@@ -16,7 +16,7 @@ export class CategoryFormComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private genreService: GenreService,
+    private genreService: CategoryService,
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<CategoryComponent>,
     public dialog: MatDialog,
@@ -34,7 +34,7 @@ export class CategoryFormComponent {
         this.genreService.modify(this.genreForm.value, this.genreForm.idgenre).subscribe(
           (response: any) => {
             console.log('Genre modified successfully', response);
-            this.router.navigate(['/category']);
+            this.router.navigate(['/genre']);
             this.dialogRef.close(true);
           },
           (error: any) => {
@@ -45,7 +45,7 @@ export class CategoryFormComponent {
         this.genreService.add(this.genreForm.value).subscribe(
           (response: any) => {
             console.log('Genre added successfully', response);
-            this.router.navigate(['/category']);
+            this.router.navigate(['/genre']);
             this.dialogRef.close(true);
           },
           (error: any) => {

@@ -1,3 +1,8 @@
+<div class="d-grid gap-5 d-md-flex justify-content-md-center">
+  <h3 class="text-center">LIBROS</h3>
+  <button class="btn btn-success btn-sm" (click)="openBookDialog()">Nuevo libro</button>
+</div>
+
 <div class="container">
   <div class="row ">
     <div class="col-md-4" *ngFor="let book of books">
@@ -19,7 +24,7 @@
               <p class="card-text">Editorial: {{ book.editorialName }} </p>
               <p class="card-text">ISBN: {{ book.isbn }} </p>
               <p class="card-text">Año edición: {{ book.year }}</p>
-              <a href="#" class="btn btn-primary ">Préstamo</a>
+              <a href="#" class="btn btn-primary disabled">Préstamo (Pte)</a>
             </div>
           </div>
         </div>

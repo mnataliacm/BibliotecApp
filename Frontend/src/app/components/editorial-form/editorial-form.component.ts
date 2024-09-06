@@ -23,7 +23,7 @@ export class EditorialFormComponent {
     private router: Router,
   ) {
     this.editorialForm = this.formBuilder.group({
-      idgenre: [data?.ideditorial || null],
+      ideditorial: [data?.ideditorial || ''],
       name: [data?.name || '', [Validators.required]],
     });
   }
@@ -34,8 +34,8 @@ export class EditorialFormComponent {
         this.editorialService.modify(this.editorialForm.value, this.editorialForm.ideditorial).subscribe(
           (response: any) => {
             console.log('Editorial modified successfully', response);
-            this.router.navigate(['/editorial']);
             this.dialogRef.close(true);
+            this.router.navigate(['/editorial']);
           },
           (error: any) => {
             console.error('Error modifying editorial', error);
@@ -44,9 +44,9 @@ export class EditorialFormComponent {
       } else {
         this.editorialService.add(this.editorialForm.value).subscribe(
           (response: any) => {
-            console.log('Editorial added successfully', response);
-            this.router.navigate(['/editorial']);
+            console.log('Editorial added successfully', response);     
             this.dialogRef.close(true);
+            this.router.navigate(['/editorial']);
           },
           (error: any) => {
             console.error('Error adding editorial', error);

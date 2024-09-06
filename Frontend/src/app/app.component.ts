@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
 import { BookService } from './services/books.service';
 import { AuthorService } from './services/author.service';
-import { GenreService } from './services/genre.service';
+import { CategoryService } from './services/category.service';
 import { EditorialService } from './services/editorial.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     private userService: UserService,
     private bookService: BookService,
     private authorService: AuthorService,
-    private genreService: GenreService,
+    private genreService: CategoryService,
     private editorialService: EditorialService,
   ) { }
 

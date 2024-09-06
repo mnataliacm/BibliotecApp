@@ -23,6 +23,25 @@ public class User {
   private String town;
   private String city;
 
+  public User() {
+  }
+
+  public User(Integer iduser, String name, String surname, String email, String mobile, String address, Integer num,
+      String floor, Integer cp, String town, String city, Integer member) {
+    this.IDuser = iduser;
+    this.name = name;
+    this.surname = surname;
+    this.email = email;
+    this.mobile = mobile;
+    this.address = address;
+    this.num = num;
+    this.floor = floor;
+    this.CP = cp;
+    this.town = town;
+    this.city = city;
+    this.member = member;
+  }
+
   public Integer getIDuser() {
     return IDuser;
   }
@@ -30,7 +49,6 @@ public class User {
   public void setIDuser(Integer IDuser) {
     this.IDuser = IDuser;
   }
-
 
   public Integer getMember() {
     return member;
@@ -103,15 +121,15 @@ public class User {
   public void setCP(Integer CP) {
     this.CP = CP;
   }
-  
+
   public String getTown() {
     return town;
   }
-  
+
   public void setTown(String town) {
     this.town = town;
   }
-  
+
   public String getCity() {
     return city;
   }

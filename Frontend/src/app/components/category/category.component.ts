@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { GenreService } from '../../services/genre.service';
-import { Genre } from '../../models/genre';
+import { CategoryService } from '../../services/category.service';
+import { Category } from '../../models/category';
 import { CategoryFormComponent } from '../category-form/category-form.component';
 
 @Component({
@@ -12,11 +12,11 @@ import { CategoryFormComponent } from '../category-form/category-form.component'
 })
 export class CategoryComponent {
 
-  public genres: Genre[] = [];
+  public genres: Category[] = [];
   server: boolean = false;
 
   constructor(
-    private genreService: GenreService,
+    private genreService: CategoryService,
     public dialog: MatDialog,
     private router: Router,
   ) { }
@@ -29,11 +29,11 @@ export class CategoryComponent {
 
   listGenres(): void {    
     this.genreService.all().subscribe(
-      (data: Genre[]) => {
+      (data: Category[]) => {
         this.genres = data;
         // console.log('Géneros...', this.genres);
         this.server = true;
-        this.router.navigate(['/category']);
+        this.router.navigate(['/genre']);
       },
       (error) => {
         console.error('Error al cargar géneros', error);
@@ -42,7 +42,7 @@ export class CategoryComponent {
     );
   }
 
-  openCategoryDialog(genre?: Genre) {
+  openCategoryDialog(genre?: Category) {
     const dialogRef = this.dialog.open(CategoryFormComponent, {
       data: genre ? { ...genre } : {}
     });
@@ -68,7 +68,7 @@ export class CategoryComponent {
       this.genreService.delete(id).subscribe(data => {
         this.genres = data;
       });
-      this.router.navigate(['/category']);
+      this.router.navigate(['/genre']);
     }
   }
   

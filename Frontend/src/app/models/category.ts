@@ -1,4 +1,4 @@
-export class Genre {
+export class Category {
   idgenre?: number;
   name?: string;
 }

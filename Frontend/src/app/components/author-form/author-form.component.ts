@@ -23,7 +23,7 @@ export class AuthorFormComponent {
     private router: Router,
   ) {
     this.authorForm = this.formBuilder.group({
-      idauthor: [data?.idauthor || null],
+      idauthor: [data?.idauthor || ''],
       name: [data?.name || '', [Validators.required]],
     });
   }
@@ -34,8 +34,11 @@ export class AuthorFormComponent {
         this.authorService.modify(this.authorForm.value, this.authorForm.value.idauthor).subscribe(
           (response: any) => {
             console.log('Author modified successfully', response);
-            this.router.navigate(['/author']);
+            // this.router.navigate(['/author']);
             this.dialogRef.close(true);
+            this.router.navigateByUrl('/author', { skipLocationChange: true }).then(() => {
+              this.router.navigate(['/author']);
+            });
           },
           (error: any) => {
             console.error('Error modifying author', error);
@@ -45,8 +48,11 @@ export class AuthorFormComponent {
         this.authorService.add(this.authorForm.value).subscribe(
           (response: any) => {
             console.log('Author added successfully', response);
-            this.router.navigate(['/author']);
+            // this.router.navigate(['/author']);
             this.dialogRef.close(true);
+            this.router.navigateByUrl('/author', { skipLocationChange: true }).then(() => {
+              this.router.navigate(['/author']);
+            });
           },
           (error: any) => {
             console.error('Error adding author', error);
@@ -61,4 +67,10 @@ export class AuthorFormComponent {
   onCancel() {
     this.dialogRef.close();
   }
+
+  // private refreshAuthorPage(): void {
+  //   this.router.navigateByUrl('/author', { skipLocationChange: true }).then(() => {
+  //     this.router.navigate(['/author']);
+  //   });
+  // }
 }

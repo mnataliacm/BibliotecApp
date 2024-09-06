@@ -1,11 +1,16 @@
-<div>
+<div class="d-grid gap-5 d-md-flex justify-content-md-center" id="header">
+  <h4 class="text-center">SOCI&#64;S</h4>
+  <button class="btn btn-success btn-sm" (click)="openUserDialog()">Nueva Soci&#64;</button>
+</div>
+
+<div class="container">
   <table class="table table-striped">
     <thead>
       <tr>
         <!-- <th scope="col">#</th> -->
         <th scope="col">Soci&#64;</th>
         <th scope="col">Nombre</th>
-        <th scope="col">Apellido</th>
+        <th scope="col">ApellidoS</th>
         <th scope="col">Email</th>
         <th scope="col">Móvil</th>
         <!-- <th scope="col">Dirección</th>
@@ -26,9 +31,12 @@
         <td>{{user.cp}}</td>
         <td>{{user.town}}</td>
         <td>{{user.city}}</td> -->
-        <td><button class="btn btn-primary" routerLink="/detalle/{{user.iduser}}" (click)="viewUserDetails(user)">Ver</button></td>
-        <td><button class="btn btn-warning" routerLink="/editar/{{user.iduser}}" (click)="openUserDialog(user)">Editar</button></td>
-        <td><button class="btn btn-danger" (click)="onDelete(user.iduser)">Borrar</button></td>
+        <td class="d-grid gap-5 d-md-flex justify-content-md-end"><button class="btn btn-primary"
+            routerLink="/detalle/{{user.iduser}}" (click)="viewUserDetails(user)">Ver</button>
+          <button class="btn btn-warning" routerLink="/editar/{{user.iduser}}"
+            (click)="openUserDialog(user)">Editar</button>
+          <button class="btn btn-danger" (click)="onDelete(user.iduser)">Borrar</button>
+        </td>
       </tr>
     </tbody>
     <tbody *ngIf="!server">
@@ -46,5 +54,4 @@
       </tr>
     </tbody>
   </table>
-  <div><button class="btn btn-success btn-lg" (click)="openUserDialog()">Nuevo Soci&#64;</button></div>
 </div>

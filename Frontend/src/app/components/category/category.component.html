@@ -1,4 +1,9 @@
-<div>
+<div class="d-grid gap-5 d-md-flex justify-content-md-center" id="header">
+  <h4 class="text-center">CATEGORIAS</h4>
+  <button class="btn btn-success btn-sm" (click)="openCategoryDialog()">Nueva Categoria</button>
+</div>
+
+<div class="container">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -11,9 +16,11 @@
       <tr>
         <th scope="row">{{genre.idgenre}}</th>
         <td scope="row">{{genre.name}}</td>
-        <td><button class="btn btn-warning" routerLink="/editar/{{genre.idgenre}}"
-            (click)="openCategoryDialog(genre)">Editar</button></td>
-        <td><button class="btn btn-danger" (click)="onDelete(genre.idgenre)">Borrar</button></td>
+        <td class="d-grid gap-5 d-md-flex justify-content-md-end">
+          <button class="btn btn-warning" routerLink="/editar/{{genre.idgenre}}"
+            (click)="openCategoryDialog(genre)">Editar</button>
+          <button class="btn btn-danger" (click)="onDelete(genre.idgenre)">Borrar</button>
+        </td>
       </tr>
     </tbody>
     <tbody *ngIf="!server">
@@ -24,5 +31,4 @@
       </tr>
     </tbody>
   </table>
-  <div><button class="btn btn-success btn-lg" (click)="openCategoryDialog()">Nueva categoría</button></div>
 </div>

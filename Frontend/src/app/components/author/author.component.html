@@ -1,4 +1,9 @@
-<div>
+<div class="d-grid gap-5 d-md-flex justify-content-md-center" id="header">
+  <h4 class="text-center">AUTORES</h4>
+  <button class="btn btn-success btn-sm" (click)="openAuthorDialog()">Nueva Autor-a</button>
+</div>
+
+<div class="container">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -10,9 +15,11 @@
     <tbody *ngFor="let author of authors">
       <tr>
         <th scope="row">{{author.idauthor}}</th>
-         <td>{{author.name}}</td>
-        <td><button class="btn btn-warning" routerLink="/editar/{{author.idauthor}}" (click)="openAuthorDialog(author)">Editar</button></td>
-        <td><button class="btn btn-danger" (click)="onDelete(author.idauthor)">Borrar</button></td>
+        <td>{{author.name}}</td>
+        <td class="d-grid gap-5 d-md-flex justify-content-md-end"><button class="btn btn-warning"
+            routerLink="/editar/{{author.idauthor}}" (click)="openAuthorDialog(author)">Editar</button>
+          <button class="btn btn-danger" (click)="onDelete(author.idauthor)">Borrar</button>
+        </td>
       </tr>
     </tbody>
     <tbody *ngIf="!server">
@@ -22,5 +29,4 @@
       </tr>
     </tbody>
   </table>
-  <div><button class="btn btn-success btn-lg" (click)="openAuthorDialog()">Nuevo Autor-a</button></div>
 </div>

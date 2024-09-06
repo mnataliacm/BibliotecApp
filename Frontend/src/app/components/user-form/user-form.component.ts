@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class UserFormComponent {
 
-  // items: any;
   userForm: any;
 
   constructor(
@@ -25,8 +24,8 @@ export class UserFormComponent {
   ) {
     this.userForm = this.formBuilder.group({
       iduser: [data?.iduser || null],
-      name: [data?.name || ''],
-      surname: [data?.surname || ''],
+      name: [data?.name || '', [Validators.required]],
+      surname: [data?.surname || '', [Validators.required]],
       email: [data?.email || '', [Validators.required, Validators.email]],
       mobile: [data?.mobile || ''],
       address: [data?.address || ''],
@@ -35,29 +34,9 @@ export class UserFormComponent {
       cp: [data?.cp || ''],
       town: [data?.town || ''],
       city: [data?.city || ''],
-      member: [data?.member || '']
+      member: [data?.member || ''],
     });
   }
-
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(UserFormComponent);
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
-
-  // onSubmit(userData: any) {
-  //   this.userService.add(userData).subscribe(
-  //     (response: any) => {
-  //       console.log('Usuario añadido correctamente', response);
-  //       this.userForm.reset();
-  //     },
-  //     (error: any) => {
-  //       console.error('Error al añadir usuario', error);
-  //     }
-  //   );
-  // }
 
   onSubmit(): void {
     if (this.userForm.valid) {
@@ -67,7 +46,7 @@ export class UserFormComponent {
           (response: User) => {
             console.log('Usuario modificado correctamente', response);
             this.router.navigate(['/user']);
-            this.dialogRef.close(true); // Cierra el diálogo y pasa un valor indicando éxito
+            this.dialogRef.close(response);
           },
           (error: any) => {
             console.error('Error al modificar usuario', error);
@@ -78,7 +57,7 @@ export class UserFormComponent {
           (response: User) => {
             console.log('Usuario añadido correctamente', response);
             this.router.navigate(['/user']);
-            this.dialogRef.close(true); // Cierra el diálogo y pasa un valor indicando éxito
+            this.dialogRef.close(true);
           },
           (error: any) => {
             console.error('Error al añadir usuario', error);
@@ -90,7 +69,7 @@ export class UserFormComponent {
     }
   }
 
-  onCancel() {
+  onCancel(): void {
     this.dialogRef.close();
   }
 

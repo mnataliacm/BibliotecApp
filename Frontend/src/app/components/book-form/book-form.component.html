@@ -1,1 +1,109 @@
-<p>book-form works!</p>
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Datos libro</h4>
+  </div>
+
+  <div class="card-body">
+    <div class="form-container">
+      <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+
+        <div class="row">
+          <div class="col">
+            <div class="form-floating">
+              <input type="number" class="form-control" id="isbn" placeholder="isbn" formControlName="isbn">
+              <label for="isbn">ISBN</label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-floating">
+              <input type="number" class="form-control" id="year" placeholder="Año publicación" formControlName="year">
+              <label for="year">Año publicación</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="title" placeholder="Título" formControlName="title">
+              <label for="title">Título</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="image" placeholder="image" formControlName="image">
+              <label for="image">Portada (url)</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2">
+            <div class="dropdown-start">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Categorías
+              </button>
+              <ul class="dropdown-menu">
+                <li *ngFor="let c of genres">
+                  <p class="dropdown-item" id="{{c.idgenre}}" (click)="selectGenre(c)">{{c.name}}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-floating">
+              <input class="form-control" id="idgenre" placeholder="Categoría" formControlName="idgenre">
+              <label for="idgenre">Categoría</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="dropdown-start">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Editoriales
+              </button>
+              <ul class="dropdown-menu">
+                <li *ngFor="let e of editorials">
+                  <p class="dropdown-item" id="{{e.ideditorial}}" (click)="selectEditorial(e)">{{e.name}}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-floating">
+              <input class="form-control" id="ideditorial" placeholder="Editorial" formControlName="ideditorial">
+              <label for="ideditorial">Editorial</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="dropdown-start">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Autores
+              </button>
+              <ul class="dropdown-menu">
+                <li *ngFor="let a of authors">
+                  <p class="dropdown-item" id="{{a.idauthor}}" (click)="selectAuthor(a)">{{a.name}}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-floating">
+              <input class="form-control" id="idauthor" placeholder="idauthor" formControlName="idauthor">
+              <label for="idauthor">Autor-a</label>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-grid gap-5 d-md-flex justify-content-center ">
+          <button class="btn btn-danger" (click)="onCancel()">Cerrar</button>
+          <button class="btn btn-primary" type="submit">Añadir</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

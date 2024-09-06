@@ -7,7 +7,7 @@ import { BookFormComponent } from '../book-form/book-form.component';
 import { BookDetailComponent } from '../book-detail/book-detail.component';
 import { AuthorService } from '../../services/author.service';
 import { EditorialService } from '../../services/editorial.service';
-import { GenreService } from '../../services/genre.service';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-book',
@@ -24,7 +24,7 @@ export class BookComponent implements OnInit {
     public dialog: MatDialog,
     private router: Router,
     private authorService: AuthorService,
-    private genreService: GenreService,
+    private genreService: CategoryService,
     private editorialService: EditorialService,
   ) {}
 
@@ -49,7 +49,7 @@ export class BookComponent implements OnInit {
           book.editorialName = editorial.name;
         });
       });
-      console.log("listBooks", this.books);
+      // console.log("listBooks", this.books);
       this.server = true;
       this.router.navigate(['/book']);
     },
